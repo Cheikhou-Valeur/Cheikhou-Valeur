@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>test</title>
+    </head>
+    <body>
+        <form  method="post" id="form" name="form" action="test.php">
+            <p>
+                <label>Nom</label>
+                <input type="text" id="nom" name="nom">
+            </p>
+            <p>
+                <label>Nom</label>
+                <input type="text" id="prenom" name="prenom">
+            </p>
+            <span id="error"></span>
+            <p>
+                <input type="submit" id="send" value="Envoyer" name="send">
+            </p>
+        </form>
+        <script>
+            let myform=document.getElementById('form');
+            
+            myform.addEventListener('submit',function(e){
+                let nom=document.getElementById('nom');
+                if(nom.value.trim()== ""){
+                    let err=document.getElementById('error');
+                    err.innerHTML="Tous les champs sont requis";
+                    err.style.color="red";
+                    e.preventDefault();
+                }
+            });
+        </script>
+    </body>
+</html>
